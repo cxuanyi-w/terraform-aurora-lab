@@ -3,11 +3,12 @@ variable "input-db_subnet_group_name" {}
 variable "input-cluster_identifier" {}
 variable "input-db_engine" {}
 variable "input-db_engine_version" {}
-# variable "input-db_engine_mode" {}
 variable "input-database_name" {}
 variable "input-master_username" {}
 variable "input-master_password" {}
 variable "input-skip_final_snapshot" {}
+variable "input-storage_encrypted" {}
+variable "input-iam_database_authentication_enabled" {}
 variable "input-max_capacity" {}
 variable "input-min_capacity" {}
 

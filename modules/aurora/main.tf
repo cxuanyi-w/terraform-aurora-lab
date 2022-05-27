@@ -41,7 +41,10 @@ resource "aws_rds_cluster" "create_primary_cluster" {
 
   # Specifying encryption
   kms_key_id        = var.input-kms_key_arn
-  storage_encrypted = true
+  storage_encrypted = var.input-storage_encrypted
+
+  # enable IAM authentication
+  iam_database_authentication_enabled = var.input-iam_database_authentication_enabled
 
   serverlessv2_scaling_configuration {
     max_capacity = var.input-max_capacity
