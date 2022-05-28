@@ -4,11 +4,14 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.15.1"
     }
+    postgresql = {
+      source  = "cyrilgdn/postgresql"
+      version = ">= 1.15.0"
+    }
     archive = {
       source  = "hashicorp/archive"
       version = "~> 2.2.0"
     }
-
     null = {
       source  = "hashicorp/null"
       version = "~> 3.1.1"
@@ -16,6 +19,7 @@ terraform {
   }
 }
 
+#################### Create Cluster ####################
 # Create the cluster to contain db instances
 resource "aws_rds_cluster" "create_primary_cluster" {
   # This section is for networking related:
@@ -52,6 +56,7 @@ resource "aws_rds_cluster" "create_primary_cluster" {
   }
 }
 
+#################### Create Instances Under Cluster ####################
 resource "aws_rds_cluster_instance" "create_primary_instance_in_cluster" {
   cluster_identifier = aws_rds_cluster.create_primary_cluster.id
 
@@ -71,3 +76,27 @@ resource "aws_rds_cluster_instance" "create_primary_instance_in_cluster" {
 #   engine_version      = var.input-db_engine_version
 #   publicly_accessible = var.input-publicly_accessible
 # }
+
+#################### Add role to the DB ####################
+provider "postgresql" {
+  host     = "testtestsys-db-test4.cluster-ccxeq5meabg4.ap-southeast-1.rds.amazonaws.com"
+  port     = 5432
+  username = var.input-master_username
+  password = var.input-master_password
+
+  #     depends_on      = [
+  #       aws_rds_cluster_instance.create_primary_instance_in_cluster
+  #       # aws_rds_cluster_instance.create_secondary_instance_in_cluster,
+  #     ]
+}
+
+resource "postgresql_role" "pguser" {
+  login    = true
+  name     = "iam_user_role_for_rds"
+  password = "iam_user_for_rds"
+  roles = ["rds_iam"]
+}
+
+resource "aws_iam_user" "pguser" {
+  name = "iam_user_for_rds"
+}
