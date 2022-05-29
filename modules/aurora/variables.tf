@@ -1,5 +1,7 @@
 # Variables for "aws_rds_cluster" "create_primary_cluster" 
-variable "input-db_subnet_group_name" {}
+variable "input-db_subnet_group_name" {
+  default = ""
+}
 variable "input-cluster_identifier" {}
 variable "input-db_engine" {}
 variable "input-db_engine_version" {}

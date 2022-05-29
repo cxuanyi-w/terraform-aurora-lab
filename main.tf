@@ -14,7 +14,9 @@ module "aurora" {
   source = "./modules/aurora"
 
   # Pass values for module variables for "aws_rds_cluster" "create_primary_cluster"
-  input-db_subnet_group_name = "cxy-terraform-created-subnet-group"
+  # input-db_subnet_group_name = "cxy-terraform-created-subnet-group"
+  input-publicly_accessible = true
+
   input-cluster_identifier   = "testtestsys-db-test5"
   input-db_engine            = "aurora-postgresql"
   input-db_engine_version    = "13.6"
@@ -37,6 +39,5 @@ module "aurora" {
   input-primary_db_instance_identifier = "testtestsys-db-test-primary-5"
   # input-secondary_db_instance_identifier = "testtestsys-db-test-secondary-5"
   input-db_instance_class   = "db.serverless"
-  input-publicly_accessible = false
   input-kms_key_arn         = module.kms.return-kms_key_arn
 }
