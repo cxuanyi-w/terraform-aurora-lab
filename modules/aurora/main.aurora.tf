@@ -1,20 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.15.1"
-    }
-    archive = {
-      source  = "hashicorp/archive"
-      version = "~> 2.2.0"
-    }
-    null = {
-      source  = "hashicorp/null"
-      version = "~> 3.1.1"
-    }
-  }
-}
-
 #################### Create Cluster ####################
 # Create the cluster to contain db instances
 resource "aws_rds_cluster" "create_primary_cluster" {

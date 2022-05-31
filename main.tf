@@ -2,10 +2,9 @@
 module "kms" {
   source = "./modules/kms"
   
-  input-aws_account_id   = "327143400501"
-  input_environment      = var.input-region
-  input-aws_account_name = "terraform-iam-user5"
-  input-kms_key_alias    = "this-terraform-created-key6"
+  input-aws_account_id   = var.input-aws_account_id
+  input-aws_account_name = var.input-aws_account_name
+  input-kms_key_alias    = var.input-kms_key_alias
 }
 
 # Call module to create aurora cluster and instances
