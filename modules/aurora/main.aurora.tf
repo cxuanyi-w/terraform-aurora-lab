@@ -33,6 +33,8 @@ resource "aws_rds_cluster" "create_primary_cluster" {
     max_capacity = var.input-max_capacity
     min_capacity = var.input-min_capacity
   }
+
+  # vpc_security_group_ids = ["sg-00c55f622a2f4d050"]
 }
 
 #################### Create Instances Under Cluster ####################

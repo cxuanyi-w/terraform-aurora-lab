@@ -7,7 +7,7 @@ input-aws_account_name = "terraform-iam-user5"
 input-kms_key_alias    = "this-terraform-created-key6"
 
 # Initialize Aurora module variables
-input-db_subnet_group_name = "cxy-terraform-private-subnet-group"
+input-db_subnet_group_name = "tf-created-private-subnet-group"
 input-publicly_accessible  = false
 
 input-cluster_identifier = "testtestsys-db-test6"
