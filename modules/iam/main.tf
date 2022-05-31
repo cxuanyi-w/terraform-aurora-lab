@@ -5,7 +5,7 @@
 #     sid       = "Enable user to use the key"
 #     effect    = "Allow"
 #     actions   = ["rds-db:connect"] # what can this key be allowed to do
-#     resources = ["arn:aws:rds-db:<REGION>:<AWS_ACCOUNT_ID>:dbuser:<DB_RESOURCE_ID>/<DB_USERNAME>"]     # What resource can this key be applied to?
+#     resources = ["arn:aws:rds-db:<REGION>:<AWS_ACCOUNT_ID>:dbuser:<DB_RESOURCE_ID>/<master_username>"]     # What resource can this key be applied to?
 #     principals {          # who can use this key account, service, role, user group, etc
 #       type = "AWS"        # This refers to "AWS Accounts" meaning under resource under IAM
 #       identifiers = [     #specify the specific resource from "AWS Account" aka IAM
