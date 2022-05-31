@@ -26,4 +26,3 @@ input-min_capacity                        = 0.5
 input-primary_db_instance_identifier = "testtestsys-db-test-primary6"
 input-secondary_db_instance_identifier = "testtestsys-db-test-secondary6"
 input-db_instance_class   = "db.serverless"
-input-kms_key_arn = module.kms.return-kms_key_arn
