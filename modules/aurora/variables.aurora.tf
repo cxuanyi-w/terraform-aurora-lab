@@ -16,7 +16,7 @@ variable "input-min_capacity" {}
 
 # Variables for "aws_rds_cluster_instance" "create_primary_instance_in_cluster"
 variable "input-primary_db_instance_identifier" {}
-# variable "input-secondary_db_instance_identifier" {}
+variable "input-secondary_db_instance_identifier" {}
 variable "input-db_instance_class" {}
 variable "input-publicly_accessible" {}
 
