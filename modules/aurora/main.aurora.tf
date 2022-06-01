@@ -1,3 +1,16 @@
+#################### Create  aws_db_subnet_group####################
+#aws_db_subnet_group
+resource "aws_db_subnet_group" "create_def_db_sn_grp_sect" {
+  name = var.input-aws_db_subnet_group_name
+  subnet_ids = [
+    aws_subnet.create_pte_sn_2_sect.id,
+    aws_subnet.create_pte_sn_1_sect.id
+  ]
+
+  tags = {
+    Name = var.input-aws_db_subnet_group_tags_name
+  }
+}
 #################### Create Cluster ####################
 # Create the cluster to contain db instances
 resource "aws_rds_cluster" "create_primary_cluster" {
